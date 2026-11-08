@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produktkatalog – LunnTech</title>
+  <link rel="icon" type="image/svg+xml" href="bilder/Logo.svg">
+  <link rel="icon" type="image/png" href="bilder/Logo.png">
+  <link rel="apple-touch-icon" href="bilder/Logo.png">
+  <meta name="description" content="Ett urval av produkter och projekt som LunnTech har utvecklat och realiserat.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Huvudmeny">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><img src="bilder/Logo.png" alt="">LunnTech</a>
+      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="index.html#om">Vad vi gör</a></li>
+        <li><a href="produkter.html" aria-current="page">Produktkatalog</a></li>
+        <li><a class="nav-cta" href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-head wrap">
+    <p class="section-title">Produktkatalog</p>
+    <h1>Våra <span>projekt</span></h1>
+  </header>
+
+  <main class="wrap">
+
+    <section class="project" id="university-project" aria-labelledby="up-title">
+      <div class="project-head">
+        <span class="project-num">01</span>
+        <h2 class="project-title" id="up-title">University project</h2>
+        <a class="video-link" href="https://youtu.be/1bGIsvOfxW0" target="_blank" rel="noopener">
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          Se filmen på YouTube
+        </a>
+      </div>
+      <div class="gallery align-center">
+        <figure class="shot span-6">
+          <img src="bilder/web/lasershark1.webp" alt="Laser Shark – spelautomaten med tre hajmål" width="536" height="505" loading="lazy">
+          <figcaption>Foto</figcaption>
+        </figure>
+        <figure class="shot span-6">
+          <img src="bilder/web/lasershark2.webp" alt="Laser Shark – laserpistolen" width="625" height="483" loading="lazy">
+          <figcaption>Foto</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project" id="ares" aria-labelledby="ares-title">
+      <div class="project-head">
+        <span class="project-num">02</span>
+        <h2 class="project-title" id="ares-title">ARES</h2>
+      </div>
+      <div class="gallery">
+        <figure class="shot span-7">
+          <img src="bilder/web/ares_foto.webp" alt="ARES – foto av den byggda anläggningen" width="1600" height="920" loading="lazy">
+          <figcaption>Foto</figcaption>
+        </figure>
+        <figure class="shot span-5">
+          <img src="bilder/web/ares_rendering1.webp" alt="ARES – rendering av hela systemet" width="1600" height="851" loading="lazy">
+          <figcaption>Rendering</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="bilder/web/ares_rendering2.webp" alt="ARES – sprängskiss av filterenheten" width="1600" height="598" loading="lazy">
+          <figcaption>Rendering</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project" id="purify" aria-labelledby="purify-title">
+      <div class="project-head">
+        <span class="project-num">03</span>
+        <h2 class="project-title" id="purify-title">PURIFY</h2>
+      </div>
+      <div class="gallery">
+        <figure class="shot span-6 tall">
+          <img src="bilder/web/purify_foto.webp" alt="PURIFY – foto av prototypen" width="927" height="1600" loading="lazy">
+          <figcaption>Foto</figcaption>
+        </figure>
+        <figure class="shot span-6 tall">
+          <img src="bilder/web/purify_rendering.webp" alt="PURIFY – rendering" width="1177" height="1184" loading="lazy">
+          <figcaption>Rendering</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project" id="machine-calculator" aria-labelledby="mc-title">
+      <div class="project-head">
+        <span class="project-num">04</span>
+        <h2 class="project-title" id="mc-title">Machine calculator</h2>
+      </div>
+      <div class="gallery">
+        <figure class="shot single tall">
+          <img src="bilder/web/maskinkalkylator_rendering.webp" alt="Machine calculator – rendering" width="956" height="1058" loading="lazy">
+          <figcaption>Rendering</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 LunnTech · Lund</div>
+  </footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Förstorad bild">
+    <button type="button" aria-label="Stäng">×</button>
+    <img alt="">
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    (function () {
+      var box = document.querySelector('.lightbox');
+      var big = box.querySelector('img');
+      function close() { box.classList.remove('show'); }
+      document.querySelectorAll('.shot').forEach(function (fig) {
+        fig.addEventListener('click', function () {
+          var img = fig.querySelector('img');
+          big.src = img.src; big.alt = img.alt;
+          box.classList.add('show');
+        });
+      });
+      box.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
