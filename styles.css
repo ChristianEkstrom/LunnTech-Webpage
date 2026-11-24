@@ -4,10 +4,10 @@
   --line: #e7e5e1;
   --bg: #faf9f7;
   --card: #ffffff;
-  --red: #E8501E;
-  --orange: #F47A21;
-  --amber: #FBB13C;
-  --grad: linear-gradient(100deg, var(--red), var(--orange) 55%, var(--amber));
+  --accent: #be2f07;
+  --accent-mid: #e2622f;
+  --accent-light: #f6a77a;
+  --grad: linear-gradient(100deg, var(--accent), var(--accent-mid) 55%, var(--accent-light));
 }
 
 * { box-sizing: border-box; }
@@ -31,19 +31,19 @@ body::before, body::after {
   z-index: -1;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: .35;
+  opacity: .3;
   pointer-events: none;
 }
 body::before {
   width: 38rem; height: 38rem;
   top: -14rem; right: -10rem;
-  background: radial-gradient(circle, var(--amber), transparent 65%);
+  background: radial-gradient(circle, var(--accent-light), transparent 65%);
 }
 body::after {
   width: 34rem; height: 34rem;
   bottom: -14rem; left: -12rem;
-  background: radial-gradient(circle, var(--red), transparent 65%);
-  opacity: .22;
+  background: radial-gradient(circle, var(--accent), transparent 65%);
+  opacity: .1;
 }
 
 .wrap { width: 100%; max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
@@ -126,9 +126,9 @@ h1 span {
 .btn-primary {
   color: #fff;
   background: var(--grad);
-  box-shadow: 0 10px 28px -10px rgba(232,80,30,.65);
+  box-shadow: 0 10px 28px -10px rgba(190,47,7,.65);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -10px rgba(232,80,30,.7); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -10px rgba(190,47,7,.7); }
 .btn-ghost {
   color: var(--ink);
   background: rgba(255,255,255,.8);
@@ -144,7 +144,7 @@ section { padding: 3.5rem 0; }
   font-size: .8rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--accent);
   font-weight: 700;
   text-align: center;
 }
@@ -187,9 +187,9 @@ section { padding: 3.5rem 0; }
   display: grid; place-items: center;
   margin-bottom: 1rem;
   border-radius: .8rem;
-  background: linear-gradient(135deg, rgba(232,80,30,.12), rgba(251,177,60,.2));
+  background: linear-gradient(135deg, rgba(190,47,7,.12), rgba(246,167,122,.22));
 }
-.icon svg { width: 1.4rem; height: 1.4rem; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon svg { width: 1.4rem; height: 1.4rem; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Kontakt ---------- */
 .contact {
@@ -248,7 +248,7 @@ footer {
   letter-spacing: -.01em;
   font-size: 1.08rem;
 }
-.brand img { width: 2.1rem; height: 2.1rem; mix-blend-mode: multiply; }
+.brand img { display: block; height: 2rem; width: auto; }
 
 .nav-links { display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0; }
 .nav-links a {
@@ -276,7 +276,7 @@ footer {
   margin-left: .4rem;
   color: #fff;
   background: var(--grad);
-  box-shadow: 0 8px 20px -10px rgba(232,80,30,.65);
+  box-shadow: 0 8px 20px -10px rgba(190,47,7,.65);
 }
 .nav-links .nav-cta:hover { color: #fff; background: var(--grad); transform: translateY(-1px); }
 
@@ -462,7 +462,7 @@ footer {
 .video-link:hover {
   transform: translateY(-2px);
   border-color: transparent;
-  box-shadow: 0 14px 30px -14px rgba(232,80,30,.55);
+  box-shadow: 0 14px 30px -14px rgba(190,47,7,.55);
 }
 .video-link .play {
   display: grid;
@@ -470,7 +470,7 @@ footer {
   width: 2rem; height: 2rem;
   border-radius: 50%;
   background: var(--grad);
-  box-shadow: 0 6px 14px -6px rgba(232,80,30,.7);
+  box-shadow: 0 6px 14px -6px rgba(190,47,7,.7);
 }
 .video-link .play svg { width: .9rem; height: .9rem; fill: #fff; margin-left: 2px; }
 
@@ -509,4 +509,85 @@ footer {
 
 @media (max-width: 720px) {
   .lang-switch { margin-left: auto; }
+}
+
+/* ---------- Boka möte (OrganAise) ---------- */
+.booking { padding-top: 1rem; }
+.booking-inner {
+  display: grid;
+  grid-template-columns: minmax(13rem, 17rem) 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 22px 44px -30px rgba(17,18,20,.25);
+}
+.booking-person { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.booking-photo {
+  width: 8.5rem; height: 8.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 0 0 3px var(--card), 0 0 0 5px var(--accent);
+}
+.booking-name { margin: 0; font-size: 1.12rem; font-weight: 700; }
+.booking-widget { border-radius: .8rem; overflow: hidden; min-width: 0; }
+.organai-inline-widget { width: 100% !important; min-width: 0 !important; }
+
+@media (max-width: 760px) {
+  .booking-inner { grid-template-columns: 1fr; padding: 1.5rem 1rem; gap: 1.75rem; }
+}
+
+/* ---------- Värdeerbjudande & erbjudande (Vad vi gör) ---------- */
+.section-heading span,
+.offer-box h2 span {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.value { padding-top: 2rem; }
+.value-lead {
+  max-width: 44rem;
+  margin: -1rem auto 2.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.offer-box {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    var(--grad) border-box;
+  border: 2px solid transparent;
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 60px -36px rgba(190,47,7,.45);
+}
+.offer-box h2 {
+  margin: 0 auto 1rem;
+  max-width: 34rem;
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  line-height: 1.25;
+  letter-spacing: -.01em;
+}
+.offer-box p:not(.section-title) {
+  max-width: 36rem;
+  margin: 0 auto 1.75rem;
+  color: var(--muted);
+}
+.offer-box .actions { animation: none; }
+#booking-title { scroll-margin-top: 6rem; }
+
+@media (max-width: 720px) {
+  .offer-box { padding: 2.25rem 1.25rem; }
 }
